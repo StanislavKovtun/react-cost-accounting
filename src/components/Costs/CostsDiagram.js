@@ -19,8 +19,10 @@ const CostDiagram = (props) => {
 
     for (const cost of props.costs) {
         const costMonth = cost.date.getMonth();
-        diagramDataSets[costMonth].value += cost.amount;
+        diagramDataSets[costMonth].value += +cost.amount;
     }
+
+    console.log(diagramDataSets);
 
     return <Diagram dataSets={diagramDataSets} />
 }
