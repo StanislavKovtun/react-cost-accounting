@@ -7,9 +7,10 @@ const NewCost = (props) => {
 
         const costData = {
             ...inputCostData,
-            ad: Date.now().toString(),
+            id: Date.now().toString(),
         };
-        //console.log(costData);
+        console.log('NewCost');
+        console.log(costData);
         props.onAddCost(costData);
     };
 

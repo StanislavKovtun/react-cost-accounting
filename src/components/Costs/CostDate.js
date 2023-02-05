@@ -2,6 +2,9 @@ import './CostDate.css';
 
 const CostDate = (props) => {
 
+    //console.log('CostDate');
+    //console.log(props.date);
+
     const date = props.date.toLocaleString("en-US", { day: '2-digit' });
     const month = props.date.toLocaleString("en-US", { month: 'long' });
     const year = props.date.getFullYear();

@@ -25,39 +25,42 @@ const CostForm = (props) => {
     //    });
     //};
 
-
     const [inputName, setInputName] = useState('');
     const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
 
     const nameChangeHandler = (event) => {
-        //console.log(event.target.value);
         setInputName(event.target.value);
     }
 
     const amountChangeHandler = (event) => {
-        //console.log(event.target.value);
         setInputAmount(event.target.value);
     }
 
     const dateChangeHandler = (event) => {
-        //console.log(event.target.value);
         setInputDate(event.target.value);
     }
 
     const submitHandler = (event) => {
+
+        //console.log('CostForm !!!');
+        console.log('inputDate: ', inputDate);
+        console.log(typeof inputDate);
+        //console.log(new Date(inputDate));
+        
         event.preventDefault();
         const costData = {
-            name: inputName,
+            description: inputName,
             amount: inputAmount,
-            date: new Date(inputDate),
-        }
+            date: new Date(inputDate || 0), //??
+        };
+
         setInputName('');
         setInputAmount('');
-        setInputDate('');
+        //setInputDate('');
 
         props.onSaveCostData(costData);
-        //console.log(costData);
+
     }
 
     return (
