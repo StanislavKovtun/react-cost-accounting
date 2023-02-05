@@ -3,6 +3,7 @@ import './Costs.css';
 import CostsFilter from "./CostsFilter";
 import { useState } from "react";
 import CostList from "./CostList";
+import CostDiagram from "./CostsDiagram";
 
 const Costs = ({ costs }) => {
 
@@ -15,28 +16,13 @@ const Costs = ({ costs }) => {
 
     const filteredCosts = selectedYear === 'all' ? costs : costs.filter((cost) => cost.date.getFullYear().toString() === selectedYear)
 
-    //let costsContent = <p>No costs this year</p>;
-
-    //if (filteredCosts.length > 0) {
-    //    costsContent = filteredCosts.map((cost) =>
-    //        <CostItem
-    //            key={cost.id}
-    //            cost={cost} />)
-    //};
-
     return (
         <>
             <Card className="costs">
                 <CostsFilter
                     year={selectedYear}
                     onChangeYear={yearChangeHandler} />
-
-                {/*{filteredCosts.length === 0 ? <p>No costs this year</p> : filteredCosts.map((cost) =>
-                    <CostItem
-                        key={cost.id}
-                        cost={cost} />)}*/}
-
-                {/*{filteredCosts.length === 0 && <p>No costs this year</p>}*/}
+                <CostDiagram costs={filteredCosts}/>
                 <CostList costs={filteredCosts} />
 
             </Card >

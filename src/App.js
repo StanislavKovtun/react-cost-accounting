@@ -29,23 +29,18 @@ const App = () => {
     const [costs, setCosts] = useState(INITIAL_COSTS);
 
     const addCostHandler = (newItem) => {
-        
-        // не правильно!
-        //setCosts([...costs, newItem]);
 
-        // правильно!
+        // +previous state!!!
         setCosts(prevCosts => {
             return [...prevCosts, newItem];
         });
 
-        //console.log('App');
-        //console.log(newItem);
     };
 
     return (
         <div className="App">
-            <NewCost onAddCost = {addCostHandler}/>
-            <Costs costs={costs}/>
+            <NewCost onAddCost={addCostHandler} />
+            <Costs costs={costs} />
         </div>
     );
 }

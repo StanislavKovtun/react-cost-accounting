@@ -3,28 +3,6 @@ import './CostForm.css';
 
 const CostForm = (props) => {
 
-    // // вариант с использованием общего стейта
-    //const [userInput, setUserInput] = useState({
-    //    name: '',
-    //    amount: '',
-    //    date: '',
-    //});
-
-    //const nameChangeHandler = (event) => {
-    //    // не надежный способ, может быть не актуальное значение пред. состояния
-    //    //setUserInput({
-    //    //    ...userInput,
-    //    //    name: event.target.value,
-    //    //});
-    //    // надежный способ:
-    //    setUserInput((previousState) => {
-    //        return {
-    //            ...previousState,
-    //            name: event.target.value,
-    //        }
-    //    });
-    //};
-
     const [inputName, setInputName] = useState('');
     const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
@@ -43,10 +21,8 @@ const CostForm = (props) => {
 
     const submitHandler = (event) => {
 
-        //console.log('CostForm !!!');
-        console.log('inputDate: ', inputDate);
-        console.log(typeof inputDate);
-        //console.log(new Date(inputDate));
+        //console.log('inputDate: ', inputDate);
+        //console.log(typeof inputDate);
         
         event.preventDefault();
         const costData = {
@@ -91,6 +67,9 @@ const CostForm = (props) => {
                     <div className='new-cost__actions'>
                         <button type='submit'>
                             Add cost
+                        </button>
+                        <button type='button' onClick={props.changeEditMode}>
+                            Close
                         </button>
                     </div>
                 </div>
