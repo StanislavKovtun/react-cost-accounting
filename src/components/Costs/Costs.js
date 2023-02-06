@@ -20,9 +20,10 @@ const Costs = ({ costs }) => {
         <>
             <Card className="costs">
                 <CostsFilter
+                    costs={costs}
                     year={selectedYear}
                     onChangeYear={yearChangeHandler} />
-                <CostDiagram costs={filteredCosts}/>
+                <CostDiagram costs={filteredCosts} />
                 <CostList costs={filteredCosts} />
 
             </Card >
